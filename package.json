@@ -1,5 +1,5 @@
 {
-  "name": "alpinejs",
+  "name": "alpine-study",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gaofengoo/alpinejs/issues"
   },
-  "homepage": "https://github.com/gaofengoo/alpinejs#readme"
+  "homepage": "https://github.com/gaofengoo/alpinejs#readme",
+  "devDependencies": {
+    "alpinejs": "^2.7.3"
+  }
 }
