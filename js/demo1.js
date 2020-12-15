@@ -46,6 +46,11 @@ function pmData() {
                 }
             }
             return str;
+        },
+        dataInit() {
+            var s = 'https://www.apple.com.cn/home/promos/iphone-12-pro/images/tile__cauwwcyyn9hy_large.jpg';
+            var b = this.stringToByte(s);
+            console.log(this.stringToByte(s), this.byteToString(b));
         }
     }
 }
