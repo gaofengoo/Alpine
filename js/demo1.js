@@ -64,16 +64,11 @@ function pmData() {
         },
         upImg: function() {
             var files = this.$refs.inputFile.files;
-            // 上传文件 创建FormData
-            var formData = new FormData()
-            // 遍历FileList对象，拿到多个图片对象
+            var formData = new FormData();
             for (var i = 0; i < files.length; i++) {
-                // formData中的append方法 如果已有相同的键，则会追加成为一个数组  注意:这里需要使用formData.getAll()获取
                 formData.append('upFile', files[i], files[i].name)
             }
-            console.log(formData.getAll('upFile'))
-            // 将formdata发送到后台即可
-            // 我用的 axios.post('url', formData)
+            console.log(formData.getAll('upFile'));
         }
     }
 }

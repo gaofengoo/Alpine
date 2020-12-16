@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/gaofengoo/alpinejs#readme",
   "devDependencies": {
-    "alpinejs": "^2.7.3"
+    "alpinejs": "^2.8.0"
   }
 }
