@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>alpine-magic-helpers v0.5.1使用</title>
-	<script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.1/dist/index.min.js"></script>
-	<script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
+    <meta charset="UTF-8">
+    <title>alpine-magic-helpers v0.5.1使用</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        .data{
+            height: 100%;
+        }
+        .foo{
+            height: calc(100% - 500px);
+            overflow-y: auto;
+        }
+        .foo-1{
+            height: 1000px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.1/dist/index.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine-ie11.min.js" defer></script>
     <script src="js/demo4.js"></script>
 </head>
+
 <body>
-	
+    <div x-data="demo4Data()" x-init="dataInit()" class="data">
+        <div>定时器开关：<button @click="autoIntervalTest = !autoIntervalTest">开关</button></div>
+        <!-- $range -->
+        <template x-for="item in $range(1, 5, 2)">
+            <p x-text="item"></p>
+        </template>
+        <template x-for="item in $range(5)">
+            <p x-text="item"></p>
+        </template>
+        <!-- $screen -->
+        <span x-show="$screen('lg')">This will be visible if the window width is equal or greater than 1024px.</span>
+        <span x-show="$screen('md') && !$screen('lg')">This will be visible if screen width is equal or greater than 768px but smaller then 1024px.</span>
+        <span x-show="$screen(1300)">This will be visible if screen width is equal or greater than 1300px.</span>
+        <!-- <span x-show="$screen('fullhd')">This will be visible if screen width is equal or greater than 1408px.</span> -->
+        <!-- $scroll -->
+        <div>
+            <button @click="position()">定位</button>
+        </div>
+        <div class="foo">
+            <div class="foo-1" x-ref="foo">haha</div>
+        </div>
+    </div>
 </body>
+
 </html>
