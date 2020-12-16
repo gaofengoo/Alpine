@@ -1,6 +1,6 @@
 function pmData() {
     return {
-        stringToByte(str) {
+        stringToByte: function(str) {
             var bytes = new Array();
             var len, c;
             len = str.length;
@@ -24,7 +24,7 @@ function pmData() {
             }
             return bytes;
         },
-        byteToString(arr) {
+        byteToString: function(arr) {
             if (typeof arr === 'string') {
                 return arr;
             }
@@ -47,10 +47,33 @@ function pmData() {
             }
             return str;
         },
-        dataInit() {
+        dataInit: function() {
             var s = 'https://www.apple.com.cn/home/promos/iphone-12-pro/images/tile__cauwwcyyn9hy_large.jpg';
             var b = this.stringToByte(s);
             console.log(this.stringToByte(s), this.byteToString(b));
+        },
+        imgChange: function() {
+            var file = this.$refs.inputFile.files[0];
+            if (!file) {
+                return alert('请选择图片');
+            }
+            if (file.type != 'image/png' && file.type != 'image/jpeg' && file.type != 'image/gif') {
+                return alert("图片上传格式不正确");
+            }
+            this.$refs.previewImage.src = file ? URL.createObjectURL(file) : '';
+        },
+        upImg: function() {
+            var files = this.$refs.inputFile.files;
+            // 上传文件 创建FormData
+            var formData = new FormData()
+            // 遍历FileList对象，拿到多个图片对象
+            for (var i = 0; i < files.length; i++) {
+                // formData中的append方法 如果已有相同的键，则会追加成为一个数组  注意:这里需要使用formData.getAll()获取
+                formData.append('upFile', files[i], files[i].name)
+            }
+            console.log(formData.getAll('upFile'))
+            // 将formdata发送到后台即可
+            // 我用的 axios.post('url', formData)
         }
     }
 }
