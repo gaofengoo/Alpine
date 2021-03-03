@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>alpinejs v2.8.1 Fixed</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js"></script>
+    <script src="js/demo5.js"></script>
+</head>
+
+<body>
+    <div x-data="initData()">
+        <template x-for="seat in seats">
+            <button type="button" style="width: 70px; height: 50px; border: 2px solid red; margin: 1rem;">TAKEN</button>
+        </template>
+        <template x-for="i in availableSeats()">
+            <button type="button" @click="takeSeat(i)" style="width: 70px; height: 50px; border: 2px solid black; margin: 1rem;">FREE</button>
+        </template>
+    </div>
+</body>
+
+</html>

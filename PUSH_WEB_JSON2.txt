@@ -115,6 +115,7 @@ userid Uint32
 width Uint32
 height Uint32
 resize Uint32 1-缩略图 0-原图
+outputType Uint8 1-jpeg 2-png 3-webp
 返回: []byte
 
 9. URL_PM_READ_RECEIPT = "pm/read"// 已读信息  POST
@@ -124,15 +125,3 @@ type ReadReceiptPacket struct {
 	Uid2        uint32
 }
 返回: 无 response
-
-ERR_CODE_FAILED  0
-ERR_CODE_SUCCESS  1
-ERR_CODE_AUTH_FAILED      2
-ERR_CODE_BLOCKED_BY_ME    3
-ERR_CODE_BLOCKED_BY_OTHER  4
-ERR_CODE_ALREADY_FRIEND   5
-ERR_CODE_COUNT_OVER_LIMIT  6
-ERR_CODE_TOO_FAST     7
-ERR_CODE_USER_NOT_FOUND   8
-ERR_CODE_ADD_SELF_FRIEND  9
-ERR_CODE_NOT_MY_FRINED    10
