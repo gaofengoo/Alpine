@@ -16,6 +16,12 @@
         <template x-for="i in availableSeats()">
             <button type="button" @click="takeSeat(i)" style="width: 70px; height: 50px; border: 2px solid black; margin: 1rem;">FREE</button>
         </template>
+        <!-- x-spread -->
+        <button x-spread="trigger">Open Dropdown</button>
+        <span x-spread="dialogue"></span>
+        <!-- away和debounce同时使用  -->
+        <div x-on:click.away.debounce.2000="showModal = !showModal">click</div>
+        <div x-show="showModal">xmodel</div>
     </div>
 </body>
 
