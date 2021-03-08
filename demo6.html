@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo6.html</title>
+	<script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.6.0/dist/index.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+</head>
+<body>
+	<div x-data="dataInit()" x-init="$track()">
+		<button @click="number = Math.floor(Math.random() * 10)" x-text="number"></button>
+	    <button x-show="$history.length" @click="$undo()">undo</button>
+	</div>
+</body>
+</html>
