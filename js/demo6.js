@@ -1,5 +1,6 @@
 function dataInit () {
 	return {
-		number: 0
+		number: 0,
+		another: 0
 	}
 }

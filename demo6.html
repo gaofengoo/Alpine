@@ -5,11 +5,21 @@
 	<title>demo6.html</title>
 	<script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.6.0/dist/index.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+	<script src="js/demo6.js"></script>
 </head>
 <body>
-	<div x-data="dataInit()" x-init="$track()">
-		<button @click="number = Math.floor(Math.random() * 10)" x-text="number"></button>
-	    <button x-show="$history.length" @click="$undo()">undo</button>
+	<div x-data="dataInit()" x-init="$track('number')">
+		<!-- $undo -->
+		<!-- <button @click="number = Math.floor(Math.random() * 10)" x-text="number"></button>
+	    <button x-show="$history.length" @click="$undo()">undo</button> -->
+	    <button @click="number = number + 1" x-text="number"></button>
+	    <button @click="another = another + 1" x-text="another"></button>
+	    <button x-show="$history.length" @click="$undo()">undo number only</button>
+	    <!-- $refresh -->
+	    <div>
+	    	<button @click="$refresh()">Refresh <code>Date.now()</code></button>
+		    <span x-text="Date.now()"></span>
+	    </div>
 	</div>
 </body>
 </html>
