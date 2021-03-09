@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>alpinejs magic helpers v1.0.0</title>
+	<script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@1.0.0/dist/index.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+</head>
+<body>
+	<!-- This won't populate baz correctly -->
+	<div x-data="{ foo: 'bar' }">
+	    <div x-data="{ baz: null }" x-init="() => baz = $parent.foo">
+	        <span x-text='baz'></span>
+	    </div>
+	</div>
+	<!-- use this instead -->
+	<div x-data="{ foo: 'bar' }">
+	    <div x-data="{ baz: null }" x-init="$nextTick(() => baz = $parent.foo)">
+	        <span x-text='baz'></span>
+	    </div>
+	</div>
+	<!-- or -->
+	<div x-data="{ foo: 'bar' }">
+	    <div x-data="{ baz: null }" x-init="setTimeout(() => baz = $parent.foo)">
+	        <span x-text='baz'></span>
+	    </div>
+	</div>
+</body>
+</html>
