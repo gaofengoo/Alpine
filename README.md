@@ -9,4 +9,5 @@
 | demo5.html | alpinejs v2.8.1 Fixed|
 | demo6.html | alpinejs magic helpers v0.6.0 |
 | demo7.html | alpinejs magic helpers v1.0.0 |
+| demo8.html | 从v2升级 |
 

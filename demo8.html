@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从v2升级</title>
+    <script defer src="https://unpkg.com/alpinejs@3.0.0/dist/cdn.min.js"></script>
+    <script src="js/demo8.js"></script>
+</head>
+<body>
+    <div x-data="updateV3" x-ref="root">
+        <button @click="elClick($el)">click</button>
+        <button @click="console.log($refs.root);">click2</button>
+        <!-- x-show.transition 统一为x-transition -->
+        <div x-show="show1" x-transition.duration.500ms>1</div>
+        <div x-show="show1" x-transition:enter.duration.500ms x-transition:leave.duration.750ms>2</div>
+        <!-- x-if不再支持x-transition -->
+        <!-- x-data级联作用域 -->
+        <div x-data="{}">
+            <div x-text="text1"></div>
+        </div>
+        <input type="text" @input="blockInput($event)">
+    </div>
+</body>
+</html>
